@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . '/../../vendor/autoload.php';
 $page = "servicos";
 use \App\Model\ProdutoServico;
 

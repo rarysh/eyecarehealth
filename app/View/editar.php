@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . '/../../vendor/autoload.php';
 
 
 use \App\Model\ProdutoServico;
@@ -10,14 +11,14 @@ if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
   exit;
 }
 
-$obProduto = \App\Model\ProdutoServico::getProduto($_GET['id']);
+$obProduto = ProdutoServico::getProduto($_GET['id']);
 if ($obProduto->tipo == 1)
     $tipoString = "produto";
 else
     $tipoString = "serviço";
 define('TITLE','Editar ' . $tipoString);
 
-if(!$obProduto instanceof \App\Model\ProdutoServico){
+if(!$obProduto instanceof ProdutoServico){
   header('location: home.php?status=error');
   exit;
 }
